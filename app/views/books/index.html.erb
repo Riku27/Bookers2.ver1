@@ -6,7 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <style type="text/css"></style>
   </head>
+  <div>
+  <%= flash[:notice] %>
+  </div>
   <main>
+    <% if @book.errors.any? %>
+     <%= @book.errors.count %>errors prohibited this obj from being saved:
+     <ul>
+       <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+       <% end %>
+     </ul>
+    <% end %>
     <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
@@ -25,7 +36,9 @@
           </tbody>
         </table>
         <div class="row">
-          <%= link_to "btn btn-outline-secondary btn-block edit_user_id", edit_user_path(current_user.id) %>
+          <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+          <% end %>
             <svg class="svg-inline--fa fa-user-cog fa-w-20" aria-hidden="true" focusable="false"
                     data-prefix="fas" data-icon="user-cog" role="img" xmlns="http://ww.w3.org/2000/svg"
                     viewBox="0 0 640 512" data-fa-i2svg></svg>
