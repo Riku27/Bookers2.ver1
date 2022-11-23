@@ -22,7 +22,7 @@
               <th><%= current_user.name %></th>
               <tr>
                 <th>introduction</th>
-                <th></th>
+                <th><%= current_user.introduction %></th>
               </tr>
             </tr>
           </tbody>
@@ -56,8 +56,8 @@
 
               <tr>
                 <td>
-                <%= image_tag current_user.get_profile_image(80,80) %>
-                <p><%= link_to current_user.name %></p>
+                <%= image_tag @book.user.get_profile_image(80,80) %>
+                <p><%= link_to @book.user.name, user_path(current_user.id) %></p>
                 </td>
 
                 <td>

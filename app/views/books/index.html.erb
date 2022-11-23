@@ -30,7 +30,7 @@
               <th><%= current_user.name %></th>
               <tr>
                 <th>introduction</th>
-                <th></th>
+                <th><%= current_user.introduction %></th>
               </tr>
             </tr>
           </tbody>
@@ -70,7 +70,9 @@
             <% @books.each do |book| %>
               <tr>
                 <td>
-                <%= image_tag current_user.get_profile_image(80,80) %>
+                <%= link_to user_path(book.user.id) do %>
+                <%= image_tag book.user.get_profile_image(80,80) %>
+                <% end %>
                 </td>
                 <td>
                 <%= link_to book.title, book_path(book.id) %>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <main>
+
     <% if @book.errors.any? %>
      <%= @book.errors.count %>errors prohibited this obj from being saved:
      <ul>
@@ -27,5 +25,3 @@
         <a><%= link_to "Back", books_path(@book.id) %></a>
       </div>
     </div>
-  </main>
-</html>
