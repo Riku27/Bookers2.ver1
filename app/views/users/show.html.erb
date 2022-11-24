@@ -28,7 +28,7 @@
           </tbody>
         </table>
         <div class="row">
-          <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+          <%= link_to edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
           <% end %>
             <svg class="svg-inline--fa fa-user-cog fa-w-20" aria-hidden="true" focusable="false"
@@ -62,7 +62,9 @@
             <% @books.each do |book| %>
               <tr>
                 <td>
+                <%= link_to user_path(book.user.id) do %>
                 <%= image_tag book.user.get_profile_image(80,80) %>
+                <% end %>
                 </td>
                 <td>
                 <%= link_to book.title, book_path(book.id) %>
